@@ -10,9 +10,11 @@ export const useFilterStore = defineStore("filter", () => {
     filter.value = value;
   };
 
+  const hasFilter = () => filter.value.length > 0;
+
   const resetFilter = () => {
     filter.value = "";
   };
 
-  return { filter, getFilter, setFilter, resetFilter };
+  return { filter, getFilter, setFilter, hasFilter, resetFilter };
 });

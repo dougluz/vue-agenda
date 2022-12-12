@@ -7,22 +7,48 @@ describe("Filter store", () => {
     setActivePinia(createPinia());
   });
 
-  it("should set the filter", () => {
-    const filter = useFilterStore();
+  describe("when no filter is set", () => {
+    it("should return an empty string", () => {
+      const filterStore = useFilterStore();
 
-    expect(filter.getFilter()).toBe("");
+      expect(filterStore.getFilter()).toBe("");
+    });
 
-    filter.setFilter("test");
-    expect(filter.getFilter()).toBe("test");
+    it("should set the filter", () => {
+      const filterStore = useFilterStore();
+
+      expect(filterStore.getFilter()).toBe("");
+
+      filterStore.setFilter("test");
+      expect(filterStore.getFilter()).toBe("test");
+    });
   });
 
-  it("should reset the filter", () => {
-    const filter = useFilterStore();
+  describe("when the filter is not empty", () => {
+    it("should return the filter", () => {
+      const filterStore = useFilterStore();
 
-    filter.setFilter("test");
-    expect(filter.getFilter()).toBe("test");
+      filterStore.setFilter("test");
+      expect(filterStore.getFilter()).toBe("test");
+    });
 
-    filter.resetFilter();
-    expect(filter.getFilter()).toBe("");
+    it("should reset the filter", () => {
+      const filterStore = useFilterStore();
+
+      filterStore.setFilter("test");
+      expect(filterStore.getFilter()).toBe("test");
+
+      filterStore.resetFilter();
+      expect(filterStore.getFilter()).toBe("");
+    });
+
+    it("should check if the filter is set", () => {
+      const filter = useFilterStore();
+
+      expect(filter.hasFilter()).toBe(false);
+
+      filter.setFilter("test");
+      expect(filter.hasFilter()).toBe(true);
+    });
   });
 });
