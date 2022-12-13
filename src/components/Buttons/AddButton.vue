@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<PrimaryButtonProps>(), {
 
 <template>
   <button class="add-button-base" :class="{ 'add-button-small': props.small }">
-    <IcPlus /> Criar contato
+    <IcPlus /> <span>Criar contato</span>
   </button>
 </template>
 
@@ -26,6 +26,10 @@ const props = withDefaults(defineProps<PrimaryButtonProps>(), {
 }
 
 .add-button-small {
-  @apply h-8 w-36;
+  @apply h-8;
+}
+
+.add-button-small span {
+  @apply hidden md:inline-block;
 }
 </style>

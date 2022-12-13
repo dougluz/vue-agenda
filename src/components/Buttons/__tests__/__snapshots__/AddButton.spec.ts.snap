@@ -1,13 +1,13 @@
 // Vitest Snapshot v1
 
 exports[`AddButton > when rendering the default version > should match the snapshot 1`] = `
-"<button class=\\"add-button\\" data-v-187b35fa=\\"\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"16\\" height=\\"16\\" viewBox=\\"0 0 16 16\\" data-v-187b35fa=\\"\\">
+"<button class=\\"add-button-base\\" data-v-187b35fa=\\"\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"16\\" height=\\"16\\" viewBox=\\"0 0 16 16\\" data-v-187b35fa=\\"\\">
     <path fill=\\"#FA7268\\" fill-rule=\\"nonzero\\" d=\\"M16 7.238H8.762V0H7.238v7.238H0v1.524h7.238V16h1.524V8.762H16z\\"></path>
-  </svg> Criar contato </button>"
+  </svg> <span data-v-187b35fa=\\"\\">Criar contato</span></button>"
 `;
 
 exports[`AddButton > when rendering the small version > should match the snapshot 1`] = `
-"<button class=\\"add-button add-button-small\\" data-v-187b35fa=\\"\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"16\\" height=\\"16\\" viewBox=\\"0 0 16 16\\" data-v-187b35fa=\\"\\">
+"<button class=\\"add-button-base add-button-small\\" data-v-187b35fa=\\"\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"16\\" height=\\"16\\" viewBox=\\"0 0 16 16\\" data-v-187b35fa=\\"\\">
     <path fill=\\"#FA7268\\" fill-rule=\\"nonzero\\" d=\\"M16 7.238H8.762V0H7.238v7.238H0v1.524h7.238V16h1.524V8.762H16z\\"></path>
-  </svg> Criar contato </button>"
+  </svg> <span data-v-187b35fa=\\"\\">Criar contato</span></button>"
 `;
