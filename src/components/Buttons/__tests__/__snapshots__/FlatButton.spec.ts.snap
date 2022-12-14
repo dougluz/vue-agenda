@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`FlatButton > when rendering the default version > should match the snapshot 1`] = `"<button class=\\"flat-button\\" data-v-12f2c869=\\"\\"> Cancelar </button>"`;
