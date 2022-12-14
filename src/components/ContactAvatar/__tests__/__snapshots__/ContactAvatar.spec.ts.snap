@@ -1,0 +1,5 @@
+// Vitest Snapshot v1
+
+exports[`ContactAvatar > when receiving a contact with a name > should match the snapshot 1`] = `"<span class=\\"avatar\\" data-v-689e67aa=\\"\\">J</span>"`;
+
+exports[`ContactAvatar > when receiving a contact without a name > should match the snapshot 1`] = `"<span class=\\"avatar\\" data-v-689e67aa=\\"\\">?</span>"`;
