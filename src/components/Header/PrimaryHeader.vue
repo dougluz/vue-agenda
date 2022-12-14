@@ -12,7 +12,7 @@ const isListEmpty = computed(() => contactStore.isEmpty());
 <template>
   <header class="w-full h-16">
     <div class="w-full p-4 flex items-center justify-between">
-      <UbookLogo class="hidden md:inline-flex h-8 w-37" alt="ubook-logo" />
+      <UbookLogo class="hidden lg:inline-flex h-8 w-37" alt="ubook-logo" />
       <div class="flex w-full items-center justify-end gap-6">
         <AddButton small v-if="!isListEmpty" />
         <SearchInput />
