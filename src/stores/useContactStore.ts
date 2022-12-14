@@ -11,8 +11,10 @@ export const useContactStore = defineStore("contact", () => {
     contacts.value.push(contact);
   };
 
-  const removeContact = (id: string) => {
-    contacts.value = contacts.value.filter((contact) => contact.id !== id);
+  const removeContact = (email: string) => {
+    contacts.value = contacts.value.filter(
+      (contact) => contact.email !== email
+    );
   };
 
   const isEmpty = () => contacts.value.length === 0;
