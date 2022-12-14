@@ -30,6 +30,6 @@ const props = withDefaults(defineProps<PrimaryButtonProps>(), {
 }
 
 .add-button-small span {
-  @apply hidden md:inline-block;
+  @apply hidden lg:inline-block;
 }
 </style>
