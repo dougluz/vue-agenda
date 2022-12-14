@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`PrimaryButton > when rendering the default version > should match the snapshot 1`] = `"<button class=\\"bg-light-red h-8 pt-2 pb-2 pl-4 pr-4 rounded-2xl\\" data-v-2da1bdcc=\\"\\"> Salvar </button>"`;
