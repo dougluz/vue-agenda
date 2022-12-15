@@ -6,26 +6,26 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/vue";
-import { ref } from "vue";
 
 type DefaultModalProps = {
+  isOpen: boolean;
   title: string;
+  handleClose: (value?: boolean) => void;
 };
 
 const props = withDefaults(defineProps<DefaultModalProps>(), {
+  isOpen: false,
   title: "Confirmar ação",
 });
-
-const isOpen = ref(false);
-
-function setIsOpen(value = false) {
-  isOpen.value = value;
-}
 </script>
 
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" @close="setIsOpen(false)" class="relative z-10">
+    <Dialog
+      as="div"
+      @close="handleClose"
+      class="relative z-10 rounded-2xl bg-red-500"
+    >
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"
@@ -52,21 +52,20 @@ function setIsOpen(value = false) {
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all"
             >
-              <DialogTitle
-                as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
-              >
-                {{ props.title }}
-              </DialogTitle>
-              <div class="mt-2">
+              <div class="p-4">
+                <DialogTitle as="h3" class="text-base">
+                  {{ props.title }}
+                </DialogTitle>
+              </div>
+              <div class="content">
                 <p class="text-sm text-gray-500">
                   <slot name="content"></slot>
                 </p>
               </div>
 
-              <div class="mt-4">
+              <div class="p-4 flex items-center justify-end gap-2">
                 <slot name="actions"></slot>
               </div>
             </DialogPanel>
@@ -76,3 +75,10 @@ function setIsOpen(value = false) {
     </Dialog>
   </TransitionRoot>
 </template>
+
+<style scoped>
+.content {
+  @apply mt-2 p-4 border-y-2 border-very-light-grey;
+  min-height: 6rem;
+}
+</style>
