@@ -5,6 +5,12 @@ import { useContactStore } from "../useContactStore";
 import type { Contact } from "@/types/contact";
 
 describe("useContactStore", () => {
+  const contact = {
+    name: randFullName(),
+    email: randEmail(),
+    phone: randPhoneNumber(),
+  };
+
   beforeEach(() => {
     setActivePinia(createPinia());
   });
@@ -23,12 +29,6 @@ describe("useContactStore", () => {
   it("should add a contact", () => {
     const contactStore = useContactStore();
 
-    const contact: Contact = {
-      name: randFullName(),
-      email: randEmail(),
-      phone: randPhoneNumber(),
-    };
-
     contactStore.addContact(contact);
 
     expect(contactStore.isEmpty()).toBe(false);
@@ -37,12 +37,6 @@ describe("useContactStore", () => {
 
   it("should remove a contact", () => {
     const contactStore = useContactStore();
-
-    const contact: Contact = {
-      name: randFullName(),
-      email: randEmail(),
-      phone: randPhoneNumber(),
-    };
 
     contactStore.addContact(contact);
     contactStore.removeContact(contact.email!);
@@ -54,22 +48,36 @@ describe("useContactStore", () => {
   it("should be able to add multiple contacts", () => {
     const contactStore = useContactStore();
 
-    const contact1: Contact = {
-      name: randFullName(),
-      email: randEmail(),
-      phone: randPhoneNumber(),
-    };
-
     const contact2: Contact = {
       name: randFullName(),
       email: randEmail(),
       phone: randPhoneNumber(),
     };
 
-    contactStore.addContact(contact1);
+    contactStore.addContact(contact);
     contactStore.addContact(contact2);
 
     expect(contactStore.isEmpty()).toBe(false);
-    expect(contactStore.getAllContacts()).toEqual([contact1, contact2]);
+    expect(contactStore.getAllContacts()).toEqual([contact, contact2]);
+  });
+  describe("when selecting a contact", () => {
+    it("should set the selected contact", () => {
+      const contactStore = useContactStore();
+
+      contactStore.addContact(contact);
+      contactStore.setSelectedContactEmail(contact.email!);
+
+      expect(contactStore.getSelectedContactEmail()).toBe(contact.email);
+    });
+
+    it("should clear the selected contact", () => {
+      const contactStore = useContactStore();
+
+      contactStore.addContact(contact);
+      contactStore.setSelectedContactEmail(contact.email!);
+      contactStore.clearSelectedContactEmail();
+
+      expect(contactStore.getSelectedContactEmail()).toBe("");
+    });
   });
 });
