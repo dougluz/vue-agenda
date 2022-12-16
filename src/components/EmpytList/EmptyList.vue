@@ -1,13 +1,20 @@
 <script setup lang="ts">
+import { useModalStore } from "@/stores/useModalStore";
 import AddButton from "../Buttons/AddButton.vue";
 import EmptyBook from "../icons/EmptyBook.vue";
+
+const { setModalStatus } = useModalStore();
+
+const handleAddContact = () => {
+  setModalStatus("formModal", true);
+};
 </script>
 
 <template>
   <div class="empty-list-container">
     <EmptyBook />
     <p>Nenhum contato foi criado ainda.</p>
-    <AddButton />
+    <AddButton @click="handleAddContact" />
   </div>
 </template>
 
