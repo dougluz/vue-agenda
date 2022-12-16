@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import { formatPhoneNumber } from "./format";
+import { formatPhoneNumber } from "../format";
 
 describe("utils tests", () => {
   it("should format the number correctly", () => {
