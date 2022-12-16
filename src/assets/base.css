@@ -26,4 +26,5 @@ p {
 
 label {
   font-size: 0.875rem;
+  @apply text-dark font-normal;
 }
